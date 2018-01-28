@@ -16,9 +16,11 @@ import org.bridge.music.model.Lrc;
 import org.bridge.music.model.OnlineMusicList;
 import org.bridge.music.model.SearchMusic;
 import org.bridge.music.model.Splash;
+
 import okhttp3.Call;
 
 /**
+ * Http请求
  *
  * @Bridge
  */
@@ -38,6 +40,7 @@ public class HttpClient {
     private static final String PARAM_TING_UID = "tinguid";
     private static final String PARAM_QUERY = "query";
 
+    //获取启动图，bing每日一图
     public static void getSplash(@NonNull final HttpCallback<Splash> callback) {
         OkHttpUtils.get().url(SPLASH_URL).build()
                 .execute(new JsonCallback<Splash>(Splash.class) {
@@ -58,6 +61,7 @@ public class HttpClient {
                 });
     }
 
+    //下载歌曲
     public static void downloadFile(String url, String destFileDir, String destFileName, @Nullable final HttpCallback<File> callback) {
         OkHttpUtils.get().url(url).build()
                 .execute(new FileCallBack(destFileDir, destFileName) {
@@ -88,6 +92,7 @@ public class HttpClient {
                 });
     }
 
+    //获取歌曲列表
     public static void getSongListInfo(String type, int size, int offset, @NonNull final HttpCallback<OnlineMusicList> callback) {
         OkHttpUtils.get().url(BASE_URL)
                 .addParams(PARAM_METHOD, METHOD_GET_MUSIC_LIST)
@@ -113,6 +118,7 @@ public class HttpClient {
                 });
     }
 
+    //获取歌曲下载信息
     public static void getMusicDownloadInfo(String songId, @NonNull final HttpCallback<DownloadInfo> callback) {
         OkHttpUtils.get().url(BASE_URL)
                 .addParams(PARAM_METHOD, METHOD_DOWNLOAD_MUSIC)
@@ -156,6 +162,9 @@ public class HttpClient {
                 });
     }
 
+
+    //根据歌曲Id 获取歌词
+
     public static void getLrc(String songId, @NonNull final HttpCallback<Lrc> callback) {
         OkHttpUtils.get().url(BASE_URL)
                 .addParams(PARAM_METHOD, METHOD_LRC)
@@ -179,6 +188,7 @@ public class HttpClient {
                 });
     }
 
+    //搜索
     public static void searchMusic(String keyword, @NonNull final HttpCallback<SearchMusic> callback) {
         OkHttpUtils.get().url(BASE_URL)
                 .addParams(PARAM_METHOD, METHOD_SEARCH_MUSIC)
@@ -202,6 +212,7 @@ public class HttpClient {
                 });
     }
 
+    //获取歌手信息
     public static void getArtistInfo(String tingUid, @NonNull final HttpCallback<ArtistInfo> callback) {
         OkHttpUtils.get().url(BASE_URL)
                 .addParams(PARAM_METHOD, METHOD_ARTIST_INFO)

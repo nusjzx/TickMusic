@@ -29,6 +29,8 @@ import java.util.Calendar;
 
 import org.bridge.music.utils.ToastUtils;
 
+import org.bridge.music.R;
+
 public class SplashActivity extends BaseActivity {
     private static final String SPLASH_FILE_NAME = "splash";
 
@@ -44,7 +46,7 @@ public class SplashActivity extends BaseActivity {
         setContentView(org.bridge.music.R.layout.activity_splash);
 
         int year = Calendar.getInstance().get(Calendar.YEAR);
-        tvCopyright.setText(getString(org.bridge.music.R.string.copyright, year));
+        tvCopyright.setText(getString(R.string.copyright, year));
 
         checkService();
     }
