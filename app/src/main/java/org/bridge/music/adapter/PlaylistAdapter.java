@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import org.bridge.music.http.HttpCallback;
-import org.bridge.music.http.HttpClient;
+import org.bridge.music.network.HttpCallback;
+import org.bridge.music.network.HttpClient;
 import org.bridge.music.model.OnlineMusic;
 
 import java.util.List;

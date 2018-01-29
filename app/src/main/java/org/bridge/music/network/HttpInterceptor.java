@@ -1,4 +1,4 @@
-package org.bridge.music.http;
+package org.bridge.music.network;
 
 import android.os.Build;
 

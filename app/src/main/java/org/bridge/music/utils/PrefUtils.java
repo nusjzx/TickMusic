@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
  * SharedPreferences工具类
  * Created by wcy on 2015/11/28.
  */
-public class Preferences {
+public class PrefUtils {
     private static final String MUSIC_ID = "music_id";
     private static final String PLAY_MODE = "play_mode";
     private static final String SPLASH_URL = "splash_url";

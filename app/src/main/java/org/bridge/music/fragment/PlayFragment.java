@@ -37,7 +37,7 @@ import org.bridge.music.R;
 import org.bridge.music.model.Music;
 import org.bridge.music.service.OnPlayerEventListener;
 import org.bridge.music.utils.CoverLoader;
-import org.bridge.music.utils.Preferences;
+import org.bridge.music.utils.PrefUtils;
 import org.bridge.music.utils.ScreenUtils;
 import org.bridge.music.utils.ToastUtils;
 import org.bridge.music.utils.binding.Bind;
@@ -158,7 +158,7 @@ public class PlayFragment extends BaseFragment implements View.OnClickListener,
     }
 
     private void initPlayMode() {
-        int mode = Preferences.getPlayMode();
+        int mode = PrefUtils.getPlayMode();
         ivMode.setImageLevel(mode);
     }
 
@@ -328,7 +328,7 @@ public class PlayFragment extends BaseFragment implements View.OnClickListener,
     }
 
     private void switchPlayMode() {
-        PlayModeEnum mode = PlayModeEnum.valueOf(Preferences.getPlayMode());
+        PlayModeEnum mode = PlayModeEnum.valueOf(PrefUtils.getPlayMode());
         switch (mode) {
             case LOOP:
                 mode = PlayModeEnum.SHUFFLE;
@@ -343,7 +343,7 @@ public class PlayFragment extends BaseFragment implements View.OnClickListener,
                 ToastUtils.show(R.string.mode_loop);
                 break;
         }
-        Preferences.savePlayMode(mode.value());
+        PrefUtils.savePlayMode(mode.value());
         initPlayMode();
     }
 

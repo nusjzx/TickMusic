@@ -13,7 +13,7 @@ import org.bridge.music.service.EventCallback;
 import org.bridge.music.service.OnPlayerEventListener;
 import org.bridge.music.service.PlayService;
 import org.bridge.music.utils.MusicUtils;
-import org.bridge.music.utils.Preferences;
+import org.bridge.music.utils.PrefUtils;
 import org.bridge.music.utils.ToastUtils;
 
 public  class SettingFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
@@ -40,8 +40,8 @@ public  class SettingFragment extends PreferenceFragment implements Preference.O
             mFilterSize.setOnPreferenceChangeListener(this);
             mFilterTime.setOnPreferenceChangeListener(this);
 
-            mFilterSize.setSummary(getSummary(Preferences.getFilterSize(), org.bridge.music.R.array.filter_size_entries, org.bridge.music.R.array.filter_size_entry_values));
-            mFilterTime.setSummary(getSummary(Preferences.getFilterTime(), org.bridge.music.R.array.filter_time_entries, org.bridge.music.R.array.filter_time_entry_values));
+            mFilterSize.setSummary(getSummary(PrefUtils.getFilterSize(), org.bridge.music.R.array.filter_size_entries, org.bridge.music.R.array.filter_size_entry_values));
+            mFilterTime.setSummary(getSummary(PrefUtils.getFilterTime(), org.bridge.music.R.array.filter_time_entries, org.bridge.music.R.array.filter_time_entry_values));
         }
 
         @Override
@@ -76,13 +76,13 @@ public  class SettingFragment extends PreferenceFragment implements Preference.O
         @Override
         public boolean onPreferenceChange(Preference preference, Object newValue) {
             if (preference == mFilterSize) {
-                Preferences.saveFilterSize((String) newValue);
-                mFilterSize.setSummary(getSummary(Preferences.getFilterSize(), org.bridge.music.R.array.filter_size_entries, org.bridge.music.R.array.filter_size_entry_values));
+                PrefUtils.saveFilterSize((String) newValue);
+                mFilterSize.setSummary(getSummary(PrefUtils.getFilterSize(), org.bridge.music.R.array.filter_size_entries, org.bridge.music.R.array.filter_size_entry_values));
                 onFilterChanged();
                 return true;
             } else if (preference == mFilterTime) {
-                Preferences.saveFilterTime((String) newValue);
-                mFilterTime.setSummary(getSummary(Preferences.getFilterTime(), org.bridge.music.R.array.filter_time_entries, org.bridge.music.R.array.filter_time_entry_values));
+                PrefUtils.saveFilterTime((String) newValue);
+                mFilterTime.setSummary(getSummary(PrefUtils.getFilterTime(), org.bridge.music.R.array.filter_time_entries, org.bridge.music.R.array.filter_time_entry_values));
                 onFilterChanged();
                 return true;
             }

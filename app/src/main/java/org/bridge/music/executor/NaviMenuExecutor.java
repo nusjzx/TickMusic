@@ -12,7 +12,7 @@ import org.bridge.music.service.PlayService;
 import org.bridge.music.service.QuitTimer;
 import org.bridge.music.activity.MusicActivity;
 import org.bridge.music.activity.SettingActivity;
-import org.bridge.music.utils.Preferences;
+import org.bridge.music.utils.PrefUtils;
 import org.bridge.music.utils.ToastUtils;
 
 /**
@@ -48,7 +48,7 @@ public class NaviMenuExecutor {
     }
 
     private static void nightMode(final MusicActivity activity) {
-        Preferences.saveNightMode(!Preferences.isNightMode());
+        PrefUtils.saveNightMode(!PrefUtils.isNightMode());
         activity.recreate();
     }
 

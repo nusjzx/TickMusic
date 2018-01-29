@@ -8,7 +8,7 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import java.util.concurrent.TimeUnit;
 
 import org.bridge.music.BuildConfig;
-import org.bridge.music.http.HttpInterceptor;
+import org.bridge.music.network.HttpInterceptor;
 import okhttp3.OkHttpClient;
 
 /**

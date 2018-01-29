@@ -21,7 +21,7 @@ import org.bridge.music.application.AppCache;
 import org.bridge.music.utils.PermissionReq;
 import org.bridge.music.R;
 import org.bridge.music.service.PlayService;
-import org.bridge.music.utils.Preferences;
+import org.bridge.music.utils.PrefUtils;
 import org.bridge.music.utils.binding.ViewBinder;
 
 /**
@@ -34,7 +34,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        if (Preferences.isNightMode()) {
+        if (PrefUtils.isNightMode()) {
             setTheme(getDarkTheme());
         }
 

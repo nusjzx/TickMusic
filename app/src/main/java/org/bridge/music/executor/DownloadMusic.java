@@ -13,7 +13,7 @@ import org.bridge.music.application.AppCache;
 import org.bridge.music.utils.FileUtils;
 import org.bridge.music.utils.NetworkUtils;
 import org.bridge.music.R;
-import org.bridge.music.utils.Preferences;
+import org.bridge.music.utils.PrefUtils;
 import org.bridge.music.utils.ToastUtils;
 
 /**
@@ -32,7 +32,7 @@ public abstract class DownloadMusic implements IExecutor<Void> {
     }
 
     private void checkNetwork() {
-        boolean mobileNetworkDownload = Preferences.enableMobileNetworkDownload();
+        boolean mobileNetworkDownload = PrefUtils.enableMobileNetworkDownload();
         if (NetworkUtils.isActiveNetworkMobile(mActivity) && !mobileNetworkDownload) {
             AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
             builder.setTitle(R.string.tips);

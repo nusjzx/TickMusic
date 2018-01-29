@@ -1,4 +1,4 @@
-package org.bridge.music.http;
+package org.bridge.music.network;
 
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.callback.Callback;

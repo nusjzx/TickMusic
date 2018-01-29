@@ -3,8 +3,8 @@ package org.bridge.music.executor;
 import android.app.Activity;
 import android.text.TextUtils;
 
-import org.bridge.music.http.HttpCallback;
-import org.bridge.music.http.HttpClient;
+import org.bridge.music.network.HttpCallback;
+import org.bridge.music.network.HttpClient;
 import org.bridge.music.model.DownloadInfo;
 import org.bridge.music.model.Lrc;
 import org.bridge.music.model.Music;

@@ -25,7 +25,7 @@ import java.util.Random;
 import org.bridge.music.application.Notifier;
 import org.bridge.music.constants.Actions;
 import org.bridge.music.model.Music;
-import org.bridge.music.utils.Preferences;
+import org.bridge.music.utils.PrefUtils;
 
 /**
  * 音乐播放后台服务
@@ -158,7 +158,7 @@ public class PlayService extends Service implements MediaPlayer.OnCompletionList
 
         mPlayingPosition = position;
         Music music = AppCache.get().getMusicList().get(mPlayingPosition);
-        Preferences.saveCurrentSongId(music.getId());
+        PrefUtils.saveCurrentSongId(music.getId());
         play(music);
     }
 
@@ -263,7 +263,7 @@ public class PlayService extends Service implements MediaPlayer.OnCompletionList
             return;
         }
 
-        PlayModeEnum mode = PlayModeEnum.valueOf(Preferences.getPlayMode());
+        PlayModeEnum mode = PlayModeEnum.valueOf(PrefUtils.getPlayMode());
         switch (mode) {
             case SHUFFLE:
                 mPlayingPosition = new Random().nextInt(AppCache.get().getMusicList().size());
@@ -284,7 +284,7 @@ public class PlayService extends Service implements MediaPlayer.OnCompletionList
             return;
         }
 
-        PlayModeEnum mode = PlayModeEnum.valueOf(Preferences.getPlayMode());
+        PlayModeEnum mode = PlayModeEnum.valueOf(PrefUtils.getPlayMode());
         switch (mode) {
             case SHUFFLE:
                 mPlayingPosition = new Random().nextInt(AppCache.get().getMusicList().size());
@@ -350,7 +350,7 @@ public class PlayService extends Service implements MediaPlayer.OnCompletionList
      */
     public void updatePlayingPosition() {
         int position = 0;
-        long id = Preferences.getCurrentSongId();
+        long id = PrefUtils.getCurrentSongId();
         for (int i = 0; i < AppCache.get().getMusicList().size(); i++) {
             if (AppCache.get().getMusicList().get(i).getId() == id) {
                 position = i;
@@ -358,7 +358,7 @@ public class PlayService extends Service implements MediaPlayer.OnCompletionList
             }
         }
         mPlayingPosition = position;
-        Preferences.saveCurrentSongId(AppCache.get().getMusicList().get(mPlayingPosition).getId());
+        PrefUtils.saveCurrentSongId(AppCache.get().getMusicList().get(mPlayingPosition).getId());
     }
 
     public int getAudioSessionId() {

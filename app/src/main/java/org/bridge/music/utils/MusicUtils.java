@@ -30,8 +30,8 @@ public class MusicUtils {
     public static List<Music> scanMusic(Context context) {
         List<Music> musicList = new ArrayList<>();
 
-        long filterSize = ParseUtils.parseLong(Preferences.getFilterSize()) * 1024;
-        long filterTime = ParseUtils.parseLong(Preferences.getFilterTime()) * 1000;
+        long filterSize = ParseUtils.parseLong(PrefUtils.getFilterSize()) * 1024;
+        long filterTime = ParseUtils.parseLong(PrefUtils.getFilterTime()) * 1000;
 
         Cursor cursor = context.getContentResolver().query(
                 MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,

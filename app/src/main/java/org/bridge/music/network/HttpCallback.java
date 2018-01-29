@@ -1,4 +1,4 @@
-package org.bridge.music.http;
+package org.bridge.music.network;
 
 /**
  * Created by hzwangchenyan on 2017/2/8.

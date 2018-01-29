@@ -8,7 +8,7 @@ import android.support.v7.app.AlertDialog;
 import org.bridge.music.utils.NetworkUtils;
 import org.bridge.music.R;
 import org.bridge.music.model.Music;
-import org.bridge.music.utils.Preferences;
+import org.bridge.music.utils.PrefUtils;
 
 /**
  * Created by hzwangchenyan on 2017/1/20.
@@ -30,7 +30,7 @@ public abstract class PlayMusic implements IExecutor<Music> {
     }
 
     private void checkNetwork() {
-        boolean mobileNetworkPlay = Preferences.enableMobileNetworkPlay();
+        boolean mobileNetworkPlay = PrefUtils.enableMobileNetworkPlay();
         if (NetworkUtils.isActiveNetworkMobile(mActivity) && !mobileNetworkPlay) {
             AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
             builder.setTitle(R.string.tips);
@@ -38,7 +38,7 @@ public abstract class PlayMusic implements IExecutor<Music> {
             builder.setPositiveButton(R.string.play_tips_sure, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    Preferences.saveMobileNetworkPlay(true);
+                    PrefUtils.saveMobileNetworkPlay(true);
                     getPlayInfoWrapper();
                 }
             });

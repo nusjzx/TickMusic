@@ -63,7 +63,13 @@ def getLocalValue(String key, boolean quot) {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    //retrofit2
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    //logger 日志工具
+    compile 'com.orhanobut:logger:2.1.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.5.0'
+
     compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'com.github.bumptech.glide:glide:3.8.0'

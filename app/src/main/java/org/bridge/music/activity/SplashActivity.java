@@ -14,14 +14,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.bridge.music.application.AppCache;
-import org.bridge.music.http.HttpCallback;
-import org.bridge.music.http.HttpClient;
+import org.bridge.music.network.HttpCallback;
+import org.bridge.music.network.HttpClient;
 import org.bridge.music.model.Splash;
 import org.bridge.music.service.EventCallback;
 import org.bridge.music.service.PlayService;
 import org.bridge.music.utils.FileUtils;
 import org.bridge.music.utils.PermissionReq;
-import org.bridge.music.utils.Preferences;
+import org.bridge.music.utils.PrefUtils;
 import org.bridge.music.utils.binding.Bind;
 
 import java.io.File;
@@ -137,7 +137,7 @@ public class SplashActivity extends BaseActivity {
                 }
 
                 final String url = response.getUrl();
-                String lastImgUrl = Preferences.getSplashUrl();
+                String lastImgUrl = PrefUtils.getSplashUrl();
                 if (TextUtils.equals(lastImgUrl, url)) {
                     return;
                 }
@@ -146,7 +146,7 @@ public class SplashActivity extends BaseActivity {
                         new HttpCallback<File>() {
                             @Override
                             public void onSuccess(File file) {
-                                Preferences.saveSplashUrl(url);
+                                PrefUtils.saveSplashUrl(url);
                             }
 
                             @Override

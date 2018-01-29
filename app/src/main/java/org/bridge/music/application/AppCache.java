@@ -17,7 +17,7 @@ import org.bridge.music.model.Music;
 import org.bridge.music.model.SongListInfo;
 import org.bridge.music.service.PlayService;
 import org.bridge.music.utils.CoverLoader;
-import org.bridge.music.utils.Preferences;
+import org.bridge.music.utils.PrefUtils;
 import org.bridge.music.utils.ScreenUtils;
 import org.bridge.music.utils.ToastUtils;
 
@@ -49,7 +49,7 @@ public class AppCache {
     public void init(Application application) {
         mContext = application.getApplicationContext();
         ToastUtils.init(mContext);
-        Preferences.init(mContext);
+        PrefUtils.init(mContext);
         ScreenUtils.init(mContext);
         CrashHandler.getInstance().init();
         CoverLoader.getInstance().init(mContext);
